@@ -1,4 +1,8 @@
-/*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities'; */
+
+/* ! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -192176,4 +192180,3 @@ select {
             animation: bounce 1s infinite;
   }
 }
-
