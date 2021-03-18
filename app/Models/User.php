@@ -11,6 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -58,4 +59,31 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //Relacion uno a uno
+    public function profile(){
+        //recuperar el registro
+        //$profile = Profile::where('user_id', $this->id)->first();
+        //return $profile;
+        return $this->hasOne('App\Models\Profile');
+    }
+    
+    //Relacion uno a muchos 
+    public function posts(){
+        return $this->hasMany('App\Models\Post');
+    }
+
+    public function videos(){
+        return $this->hasMany('App\Models\Video');
+    }
+
+    //Relacion muchos a muchos 
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
+    
+    //Relacion uno a uno polomorfica
+    public function image(){
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
 }
