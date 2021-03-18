@@ -22,4 +22,9 @@ class Post extends Model
     public function image(){
         return $this->morphOne('App\Models\Image', 'imageable');
     }
+
+    //relacion uno a muchos polimorfica
+    public function comments(){
+        return $this->morphMany('App\Models\Comment', 'commentable');
+    }
 }
